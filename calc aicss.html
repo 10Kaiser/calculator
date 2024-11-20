@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stylish Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .calculator {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            width: 300px;
+        }
+        .calculator input, .calculator select, .calculator button {
+            margin: 10px 0;
+            padding: 10px;
+            width: 80%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        .calculator button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .calculator button:hover {
+            background-color: #0056b3;
+        }
+        #answer {
+            margin-top: 20px;
+            font-size: 1.5rem;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <input type="text" id="val1" placeholder="Enter first number">
+        <input type="text" id="val2" placeholder="Enter second number">
+        <select id="options">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+        </select>
+        <button onclick="cal()">=</button>
+        <h1 id="answer"></h1>
+    </div>
+
+    <script>
+        function cal() {
+            let a = parseFloat(document.getElementById('val1').value);
+            let b = parseFloat(document.getElementById('val2').value);
+            let c = document.getElementById('options').value;
+            let ans;
+
+            if (c === '+') {
+                ans = a + b;
+            } else if (c === '-') {
+                ans = a - b;
+            } else if (c === '*') {
+                ans = a * b;
+            } else if (c === '/') {
+                ans = a / b;
+            }
+
+            document.getElementById('answer').innerHTML = ans;
+        }
+    </script>
+</body>
+</html>
